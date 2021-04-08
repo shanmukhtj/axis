@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>AXIS TAX Application</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+  </head>
+
+
+    <h3 align="center"><b>AXIS TAX</b></h3><br>
+    <div align="center">
+       <form id="upload_form" action="/upload" method="POST" enctype="multipart/form-data">
+         <h5 align="center"><b>Upload File</b></h5>
+         <input id="input-1" type="file" class="file" name="file"  accept="uploaded_files/*" multiple><br>
+         <input type="submit" name="upload" value="Upload">
+       </form>
+    </div><br/>
+
+    <div align="center">
+       <form id="download_form" action="/download" method="POST">
+         <h5 align="center"><b>Download File</b></h5>
+         File Name: <input type="text" name="filename" placeholder="Enter file name">
+         <input type="submit" name="download" value="Download">
+         <p><a href="{{ url }}">{{ url }}</a></p>
+       </form>
+    </div><br/>
+
+
+    <div align="center">
+       <form action="/list" enctype="multipart/form-data" method="GET">
+         <h5 align="center"><b>List Files</b></h5>
+         <input type="submit" name="list" value="List">
+           <table border="1|0">
+               {% for value in list_objects  %}
+               <tr>
+                   <td><p> {{ value }} </p></td>
+               </tr>
+               {% endfor  %}
+           </table>
+       </form>
+    </div>
+     <hr>
+     <form>
+     <center>
+  <footer>
+      <p>© Copyright 2021 Axis Tax Services All rights reserved. Developed by Feba Technologies</p>
+
+</footer>
+         </center>
+         </form>
+
+  </body>
+
+</html>
